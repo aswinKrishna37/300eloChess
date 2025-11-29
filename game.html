@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game - Play</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="Images/cropped_circle_image.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">♔ Chess</h1>
+            <a href="index.html" class="play-button">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="game-container">
+        <div class="game-header">
+            <h1>Chess Game - Two Player</h1>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem;">White moves first</p>
+        </div>
+
+        <div class="status-message" id="statusMessage">White's Turn</div>
+
+        <div class="game-info">
+            <div class="player-info white">
+                <h3>♔ White</h3>
+                <p id="whiteStatus">Your Turn</p>
+            </div>
+            <div class="player-info black">
+                <h3>♚ Black</h3>
+                <p id="blackStatus">Waiting...</p>
+            </div>
+        </div>
+
+        <div class="chessboard" id="chessboard"></div>
+
+        <div class="controls">
+            <button class="btn" id="resetBtn">New Game</button>
+            <button class="btn back-btn" onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Chess Game. Master the ancient game of strategy.</p>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>

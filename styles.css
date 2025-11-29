@@ -1,0 +1,511 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f8f8;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --border-light: #e0e0e0;
+    --board-light: #f0d9b5;
+    --board-dark: #b58863;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 24ch;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-right-color: var(--text-primary);
+    }
+    51%, 100% {
+        border-right-color: transparent;
+    }
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-light);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: fadeIn 0.6s ease-out 0.1s both;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.play-button {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 0.6rem 1.5rem;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.play-button:hover {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+/* Intro Section */
+.intro-section {
+    text-align: center;
+    margin-bottom: 6rem;
+    padding: 0;
+}
+
+.intro-section h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 1.5s steps(16, end) 0s 1 forwards, blink 0.7s infinite 1.5s;
+}
+
+.intro-section p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Pieces Section */
+.pieces-section {
+    margin-bottom: 6rem;
+}
+
+.pieces-section h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 4rem;
+    text-align: center;
+    font-weight: 300;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.pieces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.piece-card {
+    background-color: transparent;
+    border: 1px solid var(--border-light);
+    border-radius: 0;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.piece-card:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.piece-card:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.piece-card:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.piece-card:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.piece-card:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.piece-card:nth-child(6) {
+    animation-delay: 1.1s;
+}
+
+.piece-card:hover {
+    border-color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+.piece-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.piece-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.piece-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+/* CTA Section */
+.cta-section {
+    background: var(--bg-secondary);
+    padding: 5rem 2rem;
+    border-radius: 0;
+    text-align: center;
+    color: var(--text-primary);
+    margin: 0 -2rem;
+    animation: fadeInUp 0.8s ease-out 1.2s both;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.cta-section p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 0.8rem 2.5rem;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid var(--text-primary);
+}
+
+.cta-button:hover {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-light);
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 6rem;
+    font-size: 0.9rem;
+    animation: fadeIn 0.8s ease-out 1.3s both;
+}
+
+/* Game Page Styles */
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.game-header h1 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.game-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border-radius: 0;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.player-info {
+    text-align: center;
+    flex: 1;
+}
+
+.player-info h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.player-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    gap: 0;
+    border: 1px solid var(--text-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    user-select: none;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.square.light {
+    background-color: var(--board-light);
+}
+
+.square.dark {
+    background-color: var(--board-dark);
+}
+
+.square.selected {
+    background-color: #ffeb3b !important;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.square.valid-move::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+.square.valid-move.capture::after {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    background-color: transparent;
+}
+
+.piece {
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+
+.piece:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+}
+
+/* White pieces */
+.piece.white-piece {
+    color: #ffffff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0px 0px 3px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+}
+
+/* Black pieces */
+.piece.black-piece {
+    color: #000000;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0px 0px 2px rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.btn {
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--text-primary);
+    background-color: transparent;
+    color: var(--text-primary);
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.btn.back-btn {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+.btn.back-btn:hover {
+    border-color: var(--text-primary);
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.status-message {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    min-height: 1.5rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pieces-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .intro-section h2,
+    .pieces-section h2,
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .chessboard {
+        grid-template-columns: repeat(8, 50px);
+        grid-template-rows: repeat(8, 50px);
+    }
+
+    .square {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .chessboard {
+        grid-template-columns: repeat(8, 40px);
+        grid-template-rows: repeat(8, 40px);
+    }
+
+    .square {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .game-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
