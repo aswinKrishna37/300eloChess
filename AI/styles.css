@@ -9,6 +9,31 @@ a{
     color: black;
 }
 
+.logo-video {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    height: 50px;
+    border: none;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+
+
 :root {
     --bg-primary: #ffffff;
     --bg-secondary: #f8f8f8;
